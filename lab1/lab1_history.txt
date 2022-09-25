@@ -1,0 +1,100 @@
+ whoami
+ whoaim
+ whoami
+ echo "Hello World"
+ date
+ cal
+ man cal
+ cal -3
+ history
+ clear
+ pwd
+ cd /
+ cd ..
+ pwd
+ ls
+ ls /var
+ cd ~
+ cd ..
+ pwd
+ ls
+ man ls
+ ls -l
+ cd
+ mkdir fruits
+ cd /
+ mkdir ~/animals
+ touch /tmp/temp
+ cd ~/fruits
+ touch apple banana pineaple lion
+ touch ~/animals/{cat.txt,dog.txt,elephant.txt}
+ ls -l | grep apple
+ stat apple
+ ls b*
+ ls *a
+ ls [bi]*
+ ls b* i*
+ cp /etc/passwd ~
+ cat /etc/issue
+ cat /etc/issue > apple
+ cat apple
+ mv lion ~/animals
+ mv pineaple pineapple
+ man wc
+ wc -l /etc/passwd
+ cd ~
+ ln -s /etc/passwd passwd_link
+ ln .bash_history history_hard
+ ls -l .bash_history
+ ls -l
+ rm fruits/apple
+ mkdir rmme
+ rmdir rmme
+ rmdir fruits
+ rm -fr fruits
+ sudo cat /etc/passwd /var/log/boot.log
+ cp /etc/init.d/ ~
+ cp -r /etc/init.d/ ~
+ rm -fr init.d
+ man cut
+ cat /etc/passwd
+ cut -d: -f1 /etc/passwd | sort
+ man column
+ man less
+ cut -d: -f1,3,4 /etc/passwd | column -ts: | less
+ cut -d: -f1,3 /etc/passwd | column -ts: | less
+ grep :/bin/bash /etc/passwd | wc -l
+ man wc
+ man grep
+ grep :/bin/bash /etc/passwd | cut -d: -f1 | sort -r
+ man rpm
+ rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | head -25
+ man xargs
+ rpm -ql man-db | xargs -l du 2> /dev/null  | sort -n
+ top -b -n1 | sort -k12
+ top -b -n1 | tail -n+8 | cut -c7-  | tr -s ' ' '\t' | cut -f11,5
+ man tr
+ man uniq
+ man fold
+ cat /etc/passwd | sort -k 1 | tr ":" " "
+ cut -d: -f1,7 /etc/passwd | sort -k 1 | column -ts:
+ sudo yum install -y git
+ cd /usr/share/doc/git
+ cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+ tr '[:lower:]' '[:upper:]' < user-manual.txt | tr -d '[:punct:] \n\t' | fold -w1 | sort | uniq -c | sort -rn | head -5
+ tr -cs '[:alpha:]' '\n' < user-manual.txt | less | grep -E ........ | sort | uniq -c | sort -rn | head
+ cd ~
+ ping ya.ru
+ curl wttr.in
+ hostname -I
+ curl ifconfig.me
+ wget https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-ru.md
+ less README-ru.md
+ id
+ whoami
+ sudo id
+ id
+ sudo less /var/log/messages
+ less /var/log/messages
+ su
+ history > lab1_history.txt
