@@ -1,0 +1,49 @@
+ .:
+total 4
+drw-rw-r--. 2 alexanox alexanox 22 Sep 25 05:15 dir
+-rw-r-----. 1 root     alexanox 5 Sep 25 05:10 file
+-rw-------. 1 alexanox alexanox 0 Sep 25 05:27 file1
+-rw-rw-rw-. 1 alexanox alexanox 0 Sep 25 05:27 file2
+
+./dir:
+ls: cannot access './dir/new_file': Permission denied
+total 0
+-????????? ? ? ? ? ? new_file
+   1  cd
+   2  mkdir test
+   3  cd test
+   4  touch file
+   5  ls -l
+   6  chmod 000 file
+   7  echo "тест" > file
+   8  cat file
+   9  chmod 200 file
+  10  ll
+  11  echo "test" > file
+  12  cat file
+  13  chmod g+r file
+  14  ll
+  15  cat file
+  16  chmod u+r file
+  17  ls -l
+  18  cat file
+  19  mkdir dir
+  20  touch dir/new_file
+  21  echo "file 2" > dir/new_file
+  22  ll dir
+  23  chmod a-x dir
+  24  cat dir/new_file
+  25  rm dir/new_file
+  26  chown root:root file
+  27  man umask
+  28  umask -p
+  29  umask 077
+  30  touch file1
+  31  ls -l file1
+  32  umask 000
+  33  touch file2
+  34  ls -l file2
+  35  cat file
+  36  cat file
+  37  ls -lR
+  38  history > lab2_history.txt
