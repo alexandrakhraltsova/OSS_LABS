@@ -17,7 +17,7 @@ readinput() {
 		Справка) echo "Введите число, соответствующее опции из списка";;
 		*)
 			if [[ -z $opt ]]; then
-				echo "Ошибка: введите число из списка" >&2
+				echo "Ошибка, число должно быть из списка" >&2
 			else
 				return $REPLY
 			fi
@@ -48,27 +48,27 @@ do
 	"Монтировать файловую систему")
         read -p "Введите путь до файла/устройства: " filepath
 		if [ "$filepath" == "" ]; then
-			err "filepath cant be empty"
+			err "Путь до файла не может быть пустым"
 			continue 
 		fi
 	    if [ ! -b $filepath ] && [ ! -f $filepath ]; then
-			err "not exist or not a blockdevice|file"
+			err "Не существует или нет файла/устройства"
 			continue
         fi
 	    read -p "Введите каталог монтирования: " mountpath
 		if [ "$mountpath" == "" ]; then
-			err "mountpath cant be empty"
+			err "Каталог не может быть пустым"
 			continue
 		fi 
 	    if [ ! -e $mountpath ]; then
 			mkdir -p $mountpath
 	    elif [ -d $mountpath ]; then
 			if [ ! -z "$(ls -A $mountpath)" ]; then
-				err "directory not empty"
+				err "Каталог не пустой"
 				continue
 			fi
 	    else
-			err "Not a directory"
+			err "Не директория"
 			continue
 	    fi
 
@@ -101,7 +101,7 @@ do
 			remountfilesyspath=$(echo ${mounts[res - 1]} | cut -d " " -f3 )
 		fi
 
-	    chooseopt=("только чтение" "чтение и запись")
+	    chooseopt=("Только чтение" "Чтение и запись")
 		readinput chooseopt
 		res=$?
 		if [ $res == 1 ]; then
@@ -126,9 +126,9 @@ do
 	    readarray -t exts < <(df -t ext2 -t ext3 -t ext4 -t extcow --output=source,fstype,target 2>&1)
 		arrsize=${#exts[@]}
 	    if [ $arrsize == 1 ]; then
-			echo "Нет файловых систем данного типа" 
+			echo "Нет файловых систем заданного типа" 
 		else 
-			echo "Есть следующие системы:"
+			echo "Присутствуют следующие системы:"
 			readarray -t exts < <(df -t ext2 -t ext3 -t ext4 -t extcow --output=source,fstype,target | grep -v Filesystem )
 			readinput exts
 			res=$?
@@ -140,6 +140,6 @@ do
     "Выйти")
         break
         ;;
-	*) echo "invalid option $REPLY";;
+	*) echo "Нет такой команды $REPLY";;
     esac
 done
