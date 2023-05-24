@@ -7,6 +7,5 @@
    51  aureport
    52  aureport --auth -ts recent
    53  aureport --user -ts recent -i
-   54  ausearch --uid 1001 -ts recent
-   55  ausearch --uid 1000 -ts recent
-   56  history > lab11_roothistory
+   54  ausearch --uid 1000 -ts recent
+   55  history > lab11_roothistory
