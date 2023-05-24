@@ -1,0 +1,12 @@
+   45  auditctl -D
+   46  auditctl -w /home/alexanox/file1 -p war -k alexanox_file1
+   47  auditctl -l
+   48  aureport --file -ts today -i --summary
+   49  aureport --file -ts recent
+   50  ausearch -a 191
+   51  aureport
+   52  aureport --auth -ts recent
+   53  aureport --user -ts recent -i
+   54  ausearch --uid 1001 -ts recent
+   55  ausearch --uid 1000 -ts recent
+   56  history > lab11_roothistory
