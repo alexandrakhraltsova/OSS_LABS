@@ -1,0 +1,7 @@
+ 294  id
+ 295  pwd
+ 296  touch file1
+ 297  echo 'Hello, world!' > file1
+ 298  cat file1
+ 299  chmod 600 file1
+ 300  history > lab11_userhistory
